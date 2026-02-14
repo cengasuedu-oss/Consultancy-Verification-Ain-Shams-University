@@ -876,57 +876,64 @@
             Copyright © 2024 Faculty of Engineering, Ain Shams University
         </div>
     </footer>
-  
- <!-- Accessibility Side Panel -->
-<script>
-function resetAccessibility() {
-  document.documentElement.style.fontSize = "";
-  document.body.classList.remove(
-    "medium-contrast",
-    "high-contrast",
-    "very-high-contrast"
-  );
+ <script>
+/* ================= Accessibility ================= */
+function toggleAccessibility(){
+  document.getElementById("accessibilityPanel")?.classList.toggle("active");
+}
+
+function setFont(scale){
+  document.documentElement.style.fontSize = scale + "em";
+}
+
+function setContrast(level){
+  document.body.classList.remove("medium-contrast","high-contrast","very-high-contrast");
+  if(level==="medium") document.body.classList.add("medium-contrast");
+  if(level==="high") document.body.classList.add("high-contrast");
+  if(level==="very-high") document.body.classList.add("very-high-contrast");
+}
+
+function resetAccessibility(){
+  document.documentElement.style.fontSize="";
+  document.body.classList.remove("medium-contrast","high-contrast","very-high-contrast");
+}
+
+/* ================= Project Data ================= */
+const projectData = {
+  unit: "Highway Engineering Consultancy Unit",
+  client: "(شركة كونستريد (محمد ابراهيم محمود عثمان علي",
+  qrCode: "722615b13",
+  submissionDate: "2026-1-28 10:22:31",
+  description: "مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات",
+  approvalDate: "2026-2-03",
+  status: "Approved",
+  reportPassword: "14518423",
+  reportFile: "./assets/report.pdf"
+};
+
+document.getElementById('unit-val').innerText = projectData.unit;
+document.getElementById('client-val').innerText = projectData.client;
+document.getElementById('qr-val').innerText = projectData.qrCode;
+document.getElementById('sub-date-val').innerText = projectData.submissionDate;
+document.getElementById('desc-val').innerText = projectData.description;
+document.getElementById('app-date-val').innerText = projectData.approvalDate;
+document.getElementById('status-val').innerText = projectData.status;
+
+function showPasswordInput(){
+  document.getElementById('reportPass').style.display='block';
+  document.querySelector('.btn-submit').style.display='block';
+  document.getElementById('view-label').style.display='none';
+}
+
+function checkPassword(){
+  const pass=document.getElementById('reportPass').value;
+  if(pass===projectData.reportPassword){
+    window.open(projectData.reportFile,'_blank');
+  } else {
+    alert('Incorrect password');
+  }
 }
 </script>
-
-<script>
-  // Data from PDF and Requirements
-  const projectData = {
-    unit: "Highway Engineering Consultancy Unit",
-    client: "(شركة كونستريد (محمد ابراهيم محمود عثمان علي",
-    qrCode: "722615b13",
-    submissionDate: "2026-1-28 10:22:31",
-    description: "مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات",
-    approvalDate: "2026-2-03",
-    status: "Approved",
-    reportPassword: "14518423",
-    reportFile: "./assets/report.pdf"
-  };
-
-  document.getElementById('unit-val').innerText = projectData.unit;
-  document.getElementById('client-val').innerText = projectData.client;
-  document.getElementById('qr-val').innerText = projectData.qrCode;
-  document.getElementById('sub-date-val').innerText = projectData.submissionDate;
-  document.getElementById('desc-val').innerText = projectData.description;
-  document.getElementById('app-date-val').innerText = projectData.approvalDate;
-  document.getElementById('status-val').innerText = projectData.status;
-
-  function showPasswordInput() {
-    document.getElementById('reportPass').style.display = 'block';
-    document.querySelector('.btn-submit').style.display = 'block';
-    document.getElementById('view-label').style.display = 'none';
-  }
-
-  function checkPassword() {
-    const pass = document.getElementById('reportPass').value;
-    if (pass === projectData.reportPassword) {
-      window.open(projectData.reportFile, '_blank');
-    } else {
-      alert('Incorrect password');
-    }
-  }
-</script>
-
 
   <!-- Accessibility Panel -->
 <div id="accessibilityPanel" class="accessibility-panel">
