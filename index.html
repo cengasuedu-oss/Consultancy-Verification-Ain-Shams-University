@@ -874,11 +874,40 @@
             </div>
             Copyright © 2024 Faculty of Engineering, Ain Shams University
         </div>
-    </footer>
- <script>
+  </footer>
+<!-- Accessibility Panel -->
+<div id="accessibilityPanel" class="accessibility-panel">
+
+  <div class="accessibility-header">
+    <span><i class="fas fa-universal-access"></i> Accessibility Options</span>
+    <button class="close-btn" onclick="toggleAccessibility()">×</button>
+  </div>
+
+  <div class="accessibility-content">
+
+    <h3>Font Size</h3>
+    <div class="font-controls">
+      <button onclick="setFont(1)">Normal</button>
+      <button onclick="setFont(1.1)">Medium</button>
+      <button onclick="setFont(1.2)" class="big-btn">Large</button>
+    </div>
+
+    <h3>Contrast</h3>
+    <div class="contrast-controls">
+      <button onclick="setContrast('medium')">Medium Contrast</button>
+      <button onclick="setContrast('high')">High Contrast</button>
+      <button onclick="setContrast('very-high')">Very High Contrast</button>
+    </div>
+
+    <button class="reset-btn" onclick="resetAccessibility()">Reset</button>
+
+  </div>
+</div>
+<script>
 /* ================= Accessibility ================= */
+
 function toggleAccessibility(){
-  document.getElementById("accessibilityPanel")?.classList.toggle("active");
+  document.getElementById("accessibilityPanel").classList.toggle("active");
 }
 
 function setFont(scale){
@@ -887,6 +916,7 @@ function setFont(scale){
 
 function setContrast(level){
   document.body.classList.remove("medium-contrast","high-contrast","very-high-contrast");
+
   if(level==="medium") document.body.classList.add("medium-contrast");
   if(level==="high") document.body.classList.add("high-contrast");
   if(level==="very-high") document.body.classList.add("very-high-contrast");
@@ -896,119 +926,55 @@ function resetAccessibility(){
   document.documentElement.style.fontSize="";
   document.body.classList.remove("medium-contrast","high-contrast","very-high-contrast");
 }
-
-  <!-- Accessibility Panel -->
-<div id="accessibilityPanel" class="accessibility-panel">
-
-<div class="accessibility-header">
-<span><i class="fas fa-universal-access"></i> Accessibility Options</span>
-<button class="close-btn" onclick="toggleAccessibility()">×</button>
-</div>
-
-<div class="accessibility-content">
-
-<h3>Font Size</h3>
-<div class="font-controls">
-<button onclick="setFont(1)">Normal</button>
-<button onclick="setFont(1.1)">Medium</button>
-<button onclick="setFont(1.2)" class="big-btn">Large</button>
-</div>
-
-<h3>Contrast</h3>
-<div class="contrast-controls">
-<button onclick="setContrast('medium')">Medium Contrast</button>
-<button onclick="setContrast('high')">High Contrast</button>
-<button onclick="setContrast('very-high')">Very High Contrast</button>
-</div>
-
-<button class="reset-btn" onclick="resetAccessibility()">Reset</button>
-
-</div>
-</div>
-
-<script>
-
-
-/* ================= Accessibility ================= */
-
-function toggleAccessibility(){
-document.getElementById("accessibilityPanel").classList.toggle("active");
-}
-
-function setFont(scale){
-document.documentElement.style.fontSize = scale + "em";
-}
-
-function setContrast(level){
-
-document.body.classList.remove(
-"medium-contrast",
-"high-contrast",
-"very-high-contrast"
-);
-
-if(level==="medium") document.body.classList.add("medium-contrast");
-if(level==="high") document.body.classList.add("high-contrast");
-if(level==="very-high") document.body.classList.add("very-high-contrast");
-}
-
-function resetAccessibility(){
-document.documentElement.style.fontSize="";
-document.body.classList.remove(
-"medium-contrast",
-"high-contrast",
-"very-high-contrast"
-);
-}
-<script>
-/* ================= Project Data ================= */
-
-const projectData = {
-unit:"Highway Engineering Consultancy Unit",
-client:"(شركة كونستريد (محمد ابراهيم محمود عثمان علي",
-qrCode:"722615b13",
-submissionDate:"2026-1-28 10:22:31",
-description:"مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات",
-approvalDate:"2026-2-03",
-status:"Approved",
-reportPassword:"14518423",
-reportFile:"assets/report.pdf"
-};
-
-document.getElementById('unit-val').innerText = projectData.unit;
-document.getElementById('client-val').innerText = projectData.client;
-document.getElementById('qr-val').innerText = projectData.qrCode;
-document.getElementById('sub-date-val').innerText = projectData.submissionDate;
-document.getElementById('desc-val').innerText = projectData.description;
-document.getElementById('app-date-val').innerText = projectData.approvalDate;
-document.getElementById('status-val').innerText = projectData.status;
-
-function showPasswordInput(){
-document.getElementById('reportPass').style.display='block';
-document.querySelector('.btn-submit').style.display='block';
-document.getElementById('view-label').style.display='none';
-}
-
-function checkPassword(){
-const pass=document.getElementById('reportPass').value;
-if(pass===projectData.reportPassword){
-window.open(projectData.reportFile,'_blank');
-}else{
-alert('Incorrect password');
-}
-}
-
 </script>
+</body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const projectData = {
+    unit:"Highway Engineering Consultancy Unit",
+    client:"(شركة كونستريد (محمد ابراهيم محمود عثمان علي",
+    qrCode:"722615b13",
+    submissionDate:"2026-1-28 10:22:31",
+    description:"مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات",
+    approvalDate:"2026-2-03",
+    status:"Approved",
+    reportPassword:"14518423",
+    reportFile:"./assets/report.pdf"
+  };
+
+  document.getElementById('unit-val').innerText = projectData.unit;
+  document.getElementById('client-val').innerText = projectData.client;
+  document.getElementById('qr-val').innerText = projectData.qrCode;
+  document.getElementById('sub-date-val').innerText = projectData.submissionDate;
+  document.getElementById('desc-val').innerText = projectData.description;
+  document.getElementById('app-date-val').innerText = projectData.approvalDate;
+  document.getElementById('status-val').innerText = projectData.status;
+
+  window.showPasswordInput = function(){
+    document.getElementById('reportPass').style.display='block';
+    document.querySelector('.btn-submit').style.display='block';
+    document.getElementById('view-label').style.display='none';
+  }
+
+  window.checkPassword = function(){
+    const pass=document.getElementById('reportPass').value;
+    if(pass===projectData.reportPassword){
+      window.open(projectData.reportFile,'_blank');
+    }else{
+      alert('Incorrect password');
+    }
+  }
+
+});
+</script>
+
+   
     <!-- Accessibility Toggle Button -->
-    <div class="accessibility-toggle" onclick="toggleAccessibilityPanel()">
+    <div class="accessibility-toggle" onclick="toggleAccessibility()">
         <i class="fas fa-universal-access"></i>
     </div>
 
-    <script>
-        function toggleAccessibilityPanel() {
-            const panel = document.querySelector('.accessibility-panel');
-            panel.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
