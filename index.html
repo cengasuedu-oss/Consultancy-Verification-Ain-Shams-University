@@ -755,23 +755,36 @@ header {
         padding: 0 15px !important;
         box-sizing: border-box;
     }
-
-    /* الحاوية الخارجية للجدول */
+/* تنسيق رأس الجدول (Request Information) */
+.card-header {
+    background-color: #f8f9fa !important;
+    color: #007bff !important;
+    padding: 15px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 20px !important;          /* حجم خط مناسب */
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important; /* حواف كاملة عشان يبان كارت لوحده */
+    margin-bottom: 15px !important; /* دي المسافة البيضاء اللي أنت عاوزها */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* ظل خفيف جداً لشكل أشيك */
+}
+}
+   /* 2. تنسيق الجدول ككارت منفصل تحته */
 .info-table {
     width: 100%;
-    border-collapse: separate; /* مهم جداً عشان الحواف المنحنية تظهر */
+    border-collapse: separate; 
     border-spacing: 0;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    overflow: hidden; /* عشان يقص الزوايا الحادة */
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important; /* حواف كاملة دائرية للجدول */
+    overflow: hidden;
     background-color: white;
-}
+    margin-top: 0; /* المسافة جاية من الـ margin-bottom بتاع العنوان */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 
-/* تنسيق الصفوف */
-.info-table tr {
-    border-bottom: 1px solid #dee2e6;
+/* التأكد من وجود برواز علوي لأول صف في الجدول */
+.info-table tr:first-child td {
+    border-top: none;
 }
-
 .info-table tr:last-child {
     border-bottom: none; /* إلغاء الخط في آخر صف */
 }
@@ -779,7 +792,7 @@ header {
 /* العمود الأيسر (Label) - اللون الرمادي المظلل */
 .label {
     background-color: #f1f3f5 !important; /* درجة الرمادي من الصورة */
-    color: #495057 !important; /* لون النص الداكن */
+    color: #666d81 !important; /* لون النص الداكن */
     padding: 12px 15px !important;
     font-weight: 700 !important;
     border-right: 1px solid #dee2e6 !important; /* خط رأسي فاصل */
