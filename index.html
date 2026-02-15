@@ -1319,21 +1319,24 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
 
- window.showPasswordInput = function() {
-    // إظهار حاوية الباسورد بنظام الـ flex عشان يجوا جنب بعض
-    document.getElementById('pass-wrapper').style.display = 'inline-flex';
+ window.checkPassword = function() {
+    // 1. هنجيب القيمة اللي المستخدم كتبها في المربع
+    const userPass = document.getElementById('reportPass').value;
     
-    // لو عاوز تخفي كلمة View لما المربع يظهر فعل السطر ده:
-    // document.getElementById('view-label').style.display = 'none';
-};
+    // 2. هنجيب البيانات من الكائن اللي إنت عرفته فوق (projectData)
+    const correctPass = projectData.reportPassword;
+    const fileUrl = projectData.reportFile;
 
-window.checkPassword = function() {
-    const pass = document.getElementById('reportPass').value;
-    // هنا بنستخدم الباسورد اللي في projectData بتاعك
-    if (pass === projectData.reportPassword) {
-        window.open(projectData.reportFile, '_blank');
+    // 3. المقارنة
+    if (userPass === correctPass) {
+        // لو صح، افتح الملف في تبويب جديد
+        console.log("Password correct! Opening file...");
+        window.open(fileUrl, '_blank');
     } else {
-        alert('كلمة السر غير صحيحة');
+        // لو غلط، طلع تنبيه
+        alert('كلمة السر غير صحيحة، حاول مرة أخرى.');
+        // اختياري: مسح المربع عشان يكتب من جديد
+        document.getElementById('reportPass').value = '';
     }
 };
 </script>
