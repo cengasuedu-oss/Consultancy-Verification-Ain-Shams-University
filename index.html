@@ -789,7 +789,7 @@ header {
         width: 30px;
         height: 20px;
         position: fixed !important; /* خليه ثابت عشان ميهربش */
-        top: 110px !important;      /* نزلناه تحت الـ Accessibility */
+        top: 80px !important;      /* نزلناه تحت الـ Accessibility */
         right: 20px !important;
         z-index: 99999 !important;  /* عشان يبقى فوق كل شيء */
         cursor: pointer;
@@ -816,17 +816,13 @@ header {
     }
 }
 
-    /* 3. تعديل الهيدر واللوجو */
-    .header-main {
-        flex-direction: row !important; /* خليهم جنب بعض */
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 0 !important;
+   header {
+        /* زيادة العرض الرأسي للخلفية البيضاء في الموبايل */
+        padding: 50px 0 !important; 
     }
-
+    
     .main-logo {
-        height: 50px !important; /* تصغير اللوجو عشان المساحة */
-        margin-left: 0 !important;
+        height: 70px !important; /* ممكن تكبر اللوجو شوية كمان بما إن المساحة كبرت */
     }
 
 
