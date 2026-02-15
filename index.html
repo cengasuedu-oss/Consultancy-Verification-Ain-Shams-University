@@ -1151,11 +1151,11 @@ body {
 <tr>
     <td class="label">Report</td>
     <td class="value">
-        <span id="view-label" class="view-link" onclick="showPasswordInput()">View</span>
-        
+        <span id="view-label" class="view-link" onclick="handleViewClick()">View</span>
+
         <div id="pass-wrapper" style="display:none; align-items: center; margin-left: 10px;">
-            <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 2px;">
-            <button onclick="checkPassword()" style="margin-left:5px;">Submit</button>
+            <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 4px; border: 1px solid #ccc; border-radius: 4px;">
+            <button onclick="handleCheckPassword()" style="margin-left:5px; padding: 4px 10px; cursor: pointer;">Submit</button>
         </div>
     </td>
 </tr>
@@ -1302,26 +1302,33 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
 
- window.showPasswordInput = function() {
-    // 1. إظهار مربع الباسورد والزرار
-    document.getElementById('pass-wrapper').style.display = 'inline-flex';
+ <script>
+// 1. دالة إظهار المربع وتغيير اللون
+function handleViewClick() {
+    // إظهار مربع الباسورد
+    var wrapper = document.getElementById('pass-wrapper');
+    wrapper.style.display = 'inline-flex';
     
-    // 2. تغيير لون كلمة View للبرتقالي يدوياً عند الضغط
-    document.getElementById('view-label').classList.add('active-orange');
-};
+    // تغيير لون كلمة View للبرتقالي
+    var label = document.getElementById('view-label');
+    label.style.color = '#fd7e14'; 
+    label.style.fontWeight = 'bold';
+}
 
-window.checkPassword = function() {
-    // جلب القيم من الـ projectData اللي عندك
-    const passInput = document.getElementById('reportPass').value;
-    
-    // تأكد أن projectData معرفة فوق في الكود
-    if (passInput === projectData.reportPassword) {
-        // فتح الملف
-        window.open(projectData.reportFile, '_blank');
+// 2. دالة التحقق من الباسورد وفتح الملف
+function handleCheckPassword() {
+    // الباسورد والملف من الـ projectData اللي عندك
+    var passInput = document.getElementById('reportPass').value;
+    var correctPass = "14518423"; // الباسورد بتاعك
+    var fileUrl = "./assets/report.pdf"; // مسار الملف
+
+    if (passInput === correctPass) {
+        // لو صح افتح الملف
+        window.open(fileUrl, '_blank');
     } else {
-        alert('كلمة السر غير صحيحة');
+        alert('كلمة السر غير صحيحة!');
     }
-};
+}
 </script>
 </body>
 </html>
