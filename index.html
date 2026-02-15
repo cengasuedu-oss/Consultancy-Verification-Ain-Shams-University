@@ -768,67 +768,55 @@ header {
     margin-bottom: 15px !important; /* دي المسافة البيضاء اللي أنت عاوزها */
     box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* ظل خفيف جداً لشكل أشيك */
 }
-/* الحاوية الرئيسية للجدول */ 
+/* الحاوية الرئيسية */
 .info-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: white;
     border: 1px solid #dee2e6;
-    /* ضفنا دي للتأكيد */
-    display: table !important; 
+    background-color: white;
 }
 
-/* إجبار الصفوف تظهر جنب بعضها */
-.info-table tr {
-    display: table-row !important; 
+/* الصفوف الزوجية (تلوين الصف بالكامل) */
+.info-table tr:nth-child(odd) {
+    background-color: #f1f3f5 !important; /* الصف الأول، الثالث، الخامس... رمادي */
 }
 
-/* تنسيق الخلية الرمادية (العناوين) */
+/* الصفوف الفردية (تلوين الصف بالكامل) */
+.info-table tr:nth-child(even) {
+    background-color: #ffffff !important; /* الصف الثاني، الرابع... أبيض */
+}
+
+/* تنسيق الخلايا (العناوين والوصف) */
+.info-table td {
+    padding: 15px 12px !important;
+    border: 1px solid #dee2e6 !important;
+    font-size: 14px;
+    vertical-align: middle;
+    display: table-cell !important; /* لضمان بقائهم بجانب بعض */
+}
+
+/* تمييز خط العناوين فقط */
 .label {
-    background-color: #f1f3f5 !important;
-    color: #495057 !important;
     font-weight: 700 !important;
-    padding: 15px 12px !important;
-    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
     width: 35% !important;
-    text-align: left !important;
-    vertical-align: middle !important;
-    font-size: 14px;
-    /* السطر ده هو اللي هيخليها متنزلش تحت */
-    display: table-cell !important; 
 }
 
-/* تنسيق الخلية البيضاء (البيانات) */
+/* تنسيق الوصف */
 .value {
-    background-color: #ffffff !important;
     color: #212529 !important;
-    padding: 15px 12px !important;
-    border: 1px solid #dee2e6 !important;
     width: 65% !important;
-    text-align: left !important;
-    vertical-align: middle !important;
-    font-size: 14px;
     word-break: break-word;
-    /* السطر ده هو اللي هيخليها متنزلش تحت */
-    display: table-cell !important; 
 }
 
-/* باقي التنسيقات زي ما هي */
+/* حالة Approved ورابط View */
 .status-approved {
     background-color: #28a745;
     color: white;
     padding: 3px 10px;
     border-radius: 4px;
     font-weight: bold;
-    font-size: 12px;
     display: inline-block;
-}
-
-.view-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
 }
    /* الهامبرجر في مكانه الصحيح (أعلى اليمين) */
 #hamburger {
