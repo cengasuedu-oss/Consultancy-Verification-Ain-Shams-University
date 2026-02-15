@@ -820,13 +820,26 @@ header {
     word-break: break-word; /* لو الوصف طويل ينزل سطر جديد في مكانه */
     text-align: left !important;
 }
-/* لون Approved الأخضر */
 .status-approved {
-    background-color: #28a745 !important;
+    background-color: #28a745 !important; /* اللون الأخضر */
     color: white !important;
-    padding: 2px 10px !important;
-    border-radius: 5px !important;
+    padding: 3px 12px !important;
+    border-radius: 6px !important;
     font-weight: bold !important;
+    display: inline-block !important;
+    min-width: 80px;
+    text-align: center;
+}
+
+.view-link {
+    color: #212529 !important;
+    cursor: pointer !important;
+    text-decoration: none !important; /* إلغاء الخط السفلي */
+    font-weight: 600;
+}
+
+.view-link:hover {
+    color: #fd7e14 !important; /* تقلب برتقالي عند تمرير الماوس */
 }
 
 /* لون كلمة View عند اللمس */
@@ -1138,20 +1151,22 @@ body {
         </tr>
         <tr>
             <tr>
-          <tr>
+      <tr>
     <td class="label">Status</td>
     <td class="value">
-        <span id="status-val" class="status-approved"></span>
+        <span id="status-val" class="status-approved">Approved</span>
     </td>
 </tr>
 
 <tr>
     <td class="label">Report</td>
     <td class="value">
-        <span id="view-label" class="view-link" onclick="showPasswordInput()">View</span>
+        <span id="view-label" class="view-link" onclick="showPasswordInput()" style="text-decoration: none;">View</span>
 
-        <input type="password" id="reportPass" placeholder="Enter Password" style="display:none; margin-right:5px; padding:4px;">
-        <button class="btn-submit" onclick="checkPassword()" style="display:none; background:#fd7e14; color:white; border:none; padding:5px 10px; cursor:pointer;">Open</button>
+        <div id="password-area" style="display:none; margin-top:5px;">
+            <input type="password" id="reportPass" placeholder="Password" style="padding:4px; width:100px; border:1px solid #ccc;">
+            <button class="btn-submit" onclick="checkPassword()" style="background:#fd7e14; color:white; border:none; padding:5px 10px; cursor:pointer; border-radius:4px;">Open</button>
+        </div>
     </td>
 </tr>
  </table>
@@ -1297,22 +1312,24 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
 
-  window.showPasswordInput = function(){
-    document.getElementById('reportPass').style.display='block';
-    document.querySelector('.btn-submit').style.display='block';
-    document.getElementById('view-label').style.display='none';
-  }
+  wwindow.showPasswordInput = function(){
+    // إظهار المربع والزرار
+    document.getElementById('reportPass').style.display = 'inline-block';
+    document.querySelector('.btn-submit').style.display = 'inline-block';
+    
+    // إخفاء كلمة View عشان شكل الجدول يفضل مرتب
+    document.getElementById('view-label').style.display = 'none';
+}
 
-  window.checkPassword = function(){
-    const pass=document.getElementById('reportPass').value;
-    if(pass===projectData.reportPassword){
-      window.open(projectData.reportFile,'_blank');
-    }else{
-      alert('Incorrect password');
+window.checkPassword = function(){
+    const pass = document.getElementById('reportPass').value;
+    // هنا بنقارن بالباسورد اللي في الـ projectData اللي عندك
+    if(pass === projectData.reportPassword){
+        window.open(projectData.reportFile, '_blank');
+    } else {
+        alert('كلمة السر خطأ!');
     }
-  }
-
-});
+}
 </script>
 </body>
 </html>
