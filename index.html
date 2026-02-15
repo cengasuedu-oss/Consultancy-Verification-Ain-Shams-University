@@ -770,74 +770,50 @@ header {
 }
 /* الحاوية الرئيسية */
 .info-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #dee2e6;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #dee2e6 !important; /* الإطار الخارجي فقط */
     background-color: white;
 }
 
-/* نظام الصفوف المتبادلة (صف رمادي وصف أبيض) */
+/* نظام الصفوف المتبادلة */
 .info-table tr:nth-child(odd) {
     background-color: #f1f3f5 !important;
 }
 
-.info-table tr:nth-child(even) {
-    background-color: #ffffff !important;
-}
-
-/* تنسيق الخلايا العام */
+/* تنسيق الخلايا */
 .info-table td {
-    padding: 12px 8px !important; /* تقليل المسافات الداخلية */
-    border: 1px solid #dee2e6 !important;
+    padding: 12px 5px !important; /* مسافة عمودية محترمة ومسافة أفقية صغيرة */
     font-size: 14px;
     vertical-align: middle;
     display: table-cell !important;
+    
+    /* حذف أي خطوط داخلية تماماً */
+    border: none !important; 
+    /* خط أفقي خفيف جداً بين الصفوف عشان الكلام ميتوهش في بعضه */
+    border-bottom: 1px solid #eeeeee !important; 
 }
 
-/* العمود الأيسر (العنوان) - تقريبه من الوصف */
+/* تقريب العنوان من الوصف */
 .label {
     font-weight: 700 !important;
     color: #495057 !important;
-    /* السطر ده بيخلي العمود على قد الكلمة ومبيسبش فراغ كبير */
+    
+    /* جعل العمود على مقاس الكلمة بالظبط */
     width: 1% !important; 
-    white-space: nowrap !important; /* عشان العنوان ميتكسرش على سطرين */
-    border-right: none !important; /* شيلنا الفاصل الرأسي عشان يقربوا أكتر */
-    padding-right: 5px !important; /* مسافة صغيرة جداً قبل الوصف */
+    white-space: nowrap !important;
+    
+    /* المسافة الصغيرة اللي طلبتها بين الكلمتين */
+    padding-right: 10px !important; 
 }
 
-/* العمود الأيمن (الوصف) */
+/* الوصف */
 .value {
     color: #212529 !important;
     text-align: left !important;
-    border-left: none !important; /* شيلنا الفاصل من الناحية التانية كمان */
-    padding-left: 5px !important; /* مسافة صغيرة جداً بعد العنوان */
+    /* إلغاء أي مسافة زيادة */
+    padding-left: 0 !important; 
     word-break: break-word;
-}
-
-/* تنسيق العناصر الخاصة */
-.status-approved {
-    background-color: #28a745;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block;
-}
-   /* الهامبرجر في مكانه الصحيح (أعلى اليمين) */
-#hamburger {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    position: absolute !important; /* تابع للهيدر ويختفي مع السكرول */
-    
-    /* التعديل هنا: قللنا الرقم من 110 لـ 30 عشان يترفع فوق */
-    top: 60px !important; 
-    right: 2px !important;
-    
-    z-index: 1000 !important;
-    cursor: pointer;
 }
 
 #hamburger span {
