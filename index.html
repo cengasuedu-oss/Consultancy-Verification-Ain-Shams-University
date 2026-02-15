@@ -768,81 +768,60 @@ header {
     margin-bottom: 15px !important; /* دي المسافة البيضاء اللي أنت عاوزها */
     box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* ظل خفيف جداً لشكل أشيك */
 }
-}
-   /* 2. تنسيق الجدول ككارت منفصل تحته */
+/* الحاوية الرئيسية للجدول */ 
 .info-table {
     width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0;
-    border: 1px solid #dee2e6 !important;
-    border-radius: 8px !important; /* حواف كاملة دائرية للجدول */
-    overflow: hidden;
+    border-collapse: collapse; /* عشان الخطوط تكون رفيعة ومنتظمة */
+    margin-bottom: 20px;
     background-color: white;
-    margin-top: 0; /* المسافة جاية من الـ margin-bottom بتاع العنوان */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-
-/* الحاوية الرئيسية للجدول */
-.info-table {
-    width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0;
     border: 1px solid #dee2e6;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
 }
 
-/* تنسيق الصفوف - جعل العناصر قصاد بعض */
+/* أهم سطر: إجبار الصفوف تظهر جنب بعضها حتى في الموبايل */
 .info-table tr {
-    display: table-row; /* لضمان أنهم قصاد بعض */
-    border-bottom: 1px solid #dee2e6;
+    display: table-row !important; 
 }
 
-.info-table tr:last-child {
-    border-bottom: none;
-}
-
-/* الجزء اليمين (Label) - تغميق الرصاصي شوية */
+/* تنسيق الخلية الرمادية (العناوين) */
 .label {
-    /* تغميق اللون لدرجة رصاصي واضحة */
-    background-color: #e9ecef !important; 
-    color: #343a40 !important; /* نص أغمق للوضوح */
-    padding: 12px 15px !important;
+    background-color: #f1f3f5 !important; /* لون رصاصي هادي زي الصورة */
+    color: #495057 !important;
     font-weight: 700 !important;
-    width: 35%; /* عرض ثابت للعنوان عشان المحاذاة */
-    border-right: 1px solid #dee2e6 !important; /* الخط الفاصل بين العمودين */
-    text-align: left;
-    vertical-align: middle;
+    padding: 15px 12px !important;
+    border: 1px solid #dee2e6 !important;
+    width: 35% !important; /* تثبيت عرض العمود الأيسر */
+    text-align: left !important;
+    vertical-align: middle !important;
+    font-size: 14px;
 }
 
-/* الجزء الشمال (Value) */
+/* تنسيق الخلية البيضاء (البيانات) */
 .value {
     background-color: #ffffff !important;
     color: #212529 !important;
-    padding: 12px 15px !important;
-    text-align: left;
-    vertical-align: middle;
-    word-wrap: break-word;
+    padding: 15px 12px !important;
+    border: 1px solid #dee2e6 !important;
+    width: 65% !important;
+    text-align: left !important;
+    vertical-align: middle !important;
+    font-size: 14px;
+    word-break: break-word; /* عشان النصوص الطويلة متخرجش بره */
 }
 
-/* تنسيق حالة Approved */
+/* تنسيق كلمة Approved الأخضر */
 .status-approved {
     background-color: #28a745;
     color: white;
     padding: 3px 10px;
     border-radius: 4px;
-    font-size: 14px;
     font-weight: bold;
+    font-size: 12px;
 }
-
-/* تنسيق حالة Approved */
-.status-approved {
-    background-color: #28a745;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
+    /* تنسيق رابط View */
+.view-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
 }
    /* الهامبرجر في مكانه الصحيح (أعلى اليمين) */
 #hamburger {
