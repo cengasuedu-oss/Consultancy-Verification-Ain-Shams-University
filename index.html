@@ -951,11 +951,17 @@ body {
     const hamburger = document.getElementById('hamburger');
     const sideMenu = document.getElementById('sideMenu');
 
-    hamburger.addEventListener('click', () => {
-        if(sideMenu.style.right === "0px"){
-            sideMenu.style.right = "-100%";
-        } else {
-            sideMenu.style.right = "0px";
+    // كود تشغيل القائمة
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation(); // منع غلق المنيو فور الضغط عليها
+        sideMenu.classList.toggle('show');
+        console.log("Menu toggled"); // للتأكد في الكونسول إن الضغط شغال
+    });
+
+    // غلق القائمة عند الضغط في أي مكان خارجها
+    document.addEventListener('click', function(e) {
+        if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            sideMenu.classList.remove('show');
         }
     });
 </script>
