@@ -781,28 +781,30 @@ header {
         word-wrap: break-word;
     }
 
-    /* تعديل الهامبرجر ليكون تابعاً للهيدر ويختفي مع السكرول */
+   /* الهامبرجر في مكانه الصحيح (أعلى اليمين) */
 #hamburger {
     display: flex !important;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 20px;
-    position: absolute !important; /* تغيير من fixed لـ absolute */
-    top: 110px !important; 
+    position: absolute !important; /* تابع للهيدر ويختفي مع السكرول */
+    
+    /* التعديل هنا: قللنا الرقم من 110 لـ 30 عشان يترفع فوق */
+    top: 30px !important; 
     right: 20px !important;
+    
     z-index: 1000 !important;
     cursor: pointer;
 }
 
-    #hamburger span {
-        display: block !important;
-        background: #333 !important; /* لون الشرطات */
-        height: 3px;
-        width: 100%;
-        border-radius: 2px;
-    }
-
+#hamburger span {
+    display: block !important;
+    background: #333 !important; /* لون أسود واضح للشرطات */
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+}
     /* عشان نضمن إن زرار الـ Accessibility ميزقوش */
     .accessibility-toggle {
         top: 0 !important;
@@ -959,12 +961,6 @@ body {
 .lang-link {
     color: #444 !important;
 }
-
-/* تحسين شكل الـ Hamburger في الموبايل ليظهر بوضوح */
-#hamburger span {
-    background-color: #333 !important;
-}
-
 /* تأكيد محاذاة الفوتر للشمال في الموبايل */
 @media screen and (max-width: 768px) {
     .footer-col, .footer-logo-container, .footer-info {
