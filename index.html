@@ -781,19 +781,19 @@ header {
         word-wrap: break-word;
     }
 
-    /* ده الكود اللي هيظهر الـ Hamburger ويظبط مكانه */
-    #hamburger {
-        display: flex !important; 
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        position: fixed !important; /* خليه ثابت عشان ميهربش */
-        top: 80px !important;      /* نزلناه تحت الـ Accessibility */
-        right: 20px !important;
-        z-index: 99999 !important;  /* عشان يبقى فوق كل شيء */
-        cursor: pointer;
-    }
+    /* تعديل الهامبرجر ليكون تابعاً للهيدر ويختفي مع السكرول */
+#hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    position: absolute !important; /* تغيير من fixed لـ absolute */
+    top: 110px !important; 
+    right: 20px !important;
+    z-index: 1000 !important;
+    cursor: pointer;
+}
 
     #hamburger span {
         display: block !important;
@@ -876,31 +876,41 @@ header {
     .password-input {
         width: 100% !important;
     }
-          /* --- التعديل النهائي لإخفاء حافة القائمة الجانبية --- */
+/* --- التنسيق النهائي: شكل احترافي ويتحرك مع الصفحة --- */
 #sideMenu {
-    right: -100% !important; /* بيخلي المنيو تخرج بره الشاشة تماماً */
-    visibility: hidden;      /* بيخليها مخفية تماماً عن العين */
-    position: fixed;
+    /* التموضع: absolute عشان يختفي لما تعمل سكرول لفوق */
+    position: absolute !important; 
+    top: 150px !important; /* مكانه تحت الهيدر */
+    right: -100% !important; /* مخفي تماماً في البداية */
+    
+    /* الحجم والشكل */
+    width: 320px !important;
+    height: auto !important; /* طوله على قد الكلام */
+    max-height: 85vh; /* أقصى طول عشان ما يخرجش بره الشاشة */
+    overflow-y: auto; /* سكرول داخلي لو الكلام كتير */
+    
+    /* التصميم (زي الصورة اللي بعتها) */
+    background-color: #ffffff;
+    box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
+    border-radius: 0 0 0 15px; /* انحناء بسيط من تحت شمال */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* الحركة والظهور */
+    visibility: hidden;
     transition: right 0.4s ease, visibility 0.4s;
-    z-index: 1000;
+    z-index: 2000;
 }
+
 /* لما تضغط على الـ Hamburger والمنيو تفتح */
 #sideMenu.show {
     right: 0 !important;
     visibility: visible !important;
 }
 
-/* أهم سطر عشان يمنع الصفحة تتهز يمين وشمال */
+/* سطر الأمان لمنع الاهتزاز الجانبي */
 body {
     overflow-x: hidden;
     width: 100%;
-}
-          /* تنسيق القائمة الجانبية الاحترافي */
-#sideMenu {
-    background-color: #ffffff; /* خلفية بيضاء نظيفة */
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* ظل جانبي ناعم */
-    width: 320px !important; /* عرض أكبر قليلاً ليناسب التصميم */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .menu-header {
