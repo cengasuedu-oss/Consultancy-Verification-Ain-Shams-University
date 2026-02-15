@@ -831,33 +831,16 @@ header {
     text-align: center;
 }
 
-/* تنسيق كلمة View */
 .view-link {
-    color: #fd7e14; /* برتقالي زي الصورة */
+    color: #666d81 !important; /* نفس لون الوصف */
     cursor: pointer;
-    font-weight: bold;
     text-decoration: none;
-}
-
-/* تنسيق زرار Submit الرمادي */
-.btn-submit {
-    background-color: #f1f3f5 !important;
-    color: #adb5bd !important; /* لون الخط رمادي فاتح */
     font-weight: 500;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
-/* لما الباسورد يكون صح والزرار يتفعل ممكن نغير لونه */
-.btn-submit:hover {
-    background-color: #dee2e6 !important;
-    color: #495057 !important;
-}
-
-/* تأكد إن الـ value بتعرض الحاجة جنب بعض */
-.value {
-    display: flex;
-    align-items: center;
+/* لما تضغط بصباعك (Active) يقلب برتقالي */
+.view-link:active, .view-link.active-orange {
+    color: #fd7e14 !important; 
 }
     
 #hamburger span {
@@ -1169,10 +1152,10 @@ body {
     <td class="label">Report</td>
     <td class="value">
         <span id="view-label" class="view-link" onclick="showPasswordInput()">View</span>
-
-        <div id="pass-wrapper" style="display:none; align-items: center;">
-            <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; margin: 0 5px;">
-            <button class="btn-submit" onclick="checkPassword()" style="background: #e9ecef; color: #adb5bd; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Submit</button>
+        
+        <div id="pass-wrapper" style="display:none; align-items: center; margin-left: 10px;">
+            <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 2px;">
+            <button onclick="checkPassword()" style="margin-left:5px;">Submit</button>
         </div>
     </td>
 </tr>
@@ -1319,24 +1302,24 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
 
- window.checkPassword = function() {
-    // 1. هنجيب القيمة اللي المستخدم كتبها في المربع
-    const userPass = document.getElementById('reportPass').value;
+ window.showPasswordInput = function() {
+    // 1. إظهار مربع الباسورد والزرار
+    document.getElementById('pass-wrapper').style.display = 'inline-flex';
     
-    // 2. هنجيب البيانات من الكائن اللي إنت عرفته فوق (projectData)
-    const correctPass = projectData.reportPassword;
-    const fileUrl = projectData.reportFile;
+    // 2. تغيير لون كلمة View للبرتقالي يدوياً عند الضغط
+    document.getElementById('view-label').classList.add('active-orange');
+};
 
-    // 3. المقارنة
-    if (userPass === correctPass) {
-        // لو صح، افتح الملف في تبويب جديد
-        console.log("Password correct! Opening file...");
-        window.open(fileUrl, '_blank');
+window.checkPassword = function() {
+    // جلب القيم من الـ projectData اللي عندك
+    const passInput = document.getElementById('reportPass').value;
+    
+    // تأكد أن projectData معرفة فوق في الكود
+    if (passInput === projectData.reportPassword) {
+        // فتح الملف
+        window.open(projectData.reportFile, '_blank');
     } else {
-        // لو غلط، طلع تنبيه
-        alert('كلمة السر غير صحيحة، حاول مرة أخرى.');
-        // اختياري: مسح المربع عشان يكتب من جديد
-        document.getElementById('reportPass').value = '';
+        alert('كلمة السر غير صحيحة');
     }
 };
 </script>
