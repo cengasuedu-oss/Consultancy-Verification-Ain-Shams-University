@@ -812,18 +812,24 @@ header {
     
     /* تصغير اللوجو عشان ميزقش المنيو */
     .main-logo {
-        height: 60px !important;
+        margin: 0 !important; /* إلغاء أي هوامش تخليه في النص */
+        height: 60px !important; /* تحكم في حجمه من هنا */
+        display: block;
     }
 }
 
    header {
         /* زيادة العرض الرأسي للخلفية البيضاء في الموبايل */
-        padding: 50px 0 !important; 
+        padding: 40px 0 !important; 
+    }
+    .header-main {
+        flex-direction: row !important; /* التأكد إنهم جنب بعض مش فوق بعض */
+        justify-content: flex-start !important; /* البداية من الشمال */
+        align-items: flex-start !important; /* المحاذاة للأعلى */
+        padding: 20px 15px !important; /* مساحة داخلية للهيدر */
+        position: relative;
     }
     
-    .main-logo {
-        height: 70px !important; /* ممكن تكبر اللوجو شوية كمان بما إن المساحة كبرت */
-    }
 
 
     /* 4. تعديل الفوتر (Footer) */
