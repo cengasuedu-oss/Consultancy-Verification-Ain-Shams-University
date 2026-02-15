@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
@@ -92,7 +92,7 @@
             background: #d35400;
         }
 
-        /* Header */
+         /* Header */
         header {
             background: white;
             padding: 0;
@@ -105,7 +105,7 @@
         .header-container {
             max-width: 1128px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding:  20px;
         }
 
         .header-main {
@@ -118,8 +118,9 @@
         }
 
         .main-logo {
-            height: 80px;
+            height: 100px;
             width: auto;
+            margin-left: -30px;
         }
 
         .user-nav {
@@ -149,9 +150,9 @@
     right: 0;
     background: #4c6fb1;
     color: white;
-    width: 80px;
+    width: 60px;
     height: 50px;
-    border-radius: 25px 0 0 25px;
+    border-radius: 35px 0 0 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,12 +167,12 @@
 }
 
 .accessibility-toggle i {
-    font-size: 24px;
+    font-size: 23px;
     background: white;
     color: #4c6fb1;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,8 +182,8 @@
 .accessibility-panel {
     position: fixed;
     top: 0;
-    right: -400px;
-    width: 400px;
+    right: -250px;
+    width: 250px;
     height: 100%;
     background: #f5f5f5;
     box-shadow: -5px 0 20px rgba(0,0,0,0.2);
@@ -210,6 +211,7 @@
 .accessibility-header i {
     margin-right: 10px;
 }
+
 
 .close-btn {
     background: none;
@@ -295,25 +297,22 @@
     color: white !important;
 }
         /* Hamburger Menu */
-    
-        <div id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
 
-<style>
+header {
+  position: relative;   
+}
+
 #hamburger {
   cursor: pointer;
+  position: absolute;  
+  top: 70px;
+  right: -100px;
+  z-index: 1001;
+  width: 30px;
+  height: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 18px;
-  width: 25px;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 999999;
 }
 #hamburger span {
   background: #333;
@@ -321,25 +320,34 @@
   width: 100%;
   border-radius: 2px;
 }
+@media (max-width: 768px) {
+  #hamburger {
+    top: 80px;    
+    right: 12px;  
+    width: 26px;  
+    height: 18px;
+  }
+}
 </style>
       <style>
     /* Side Menu */
-        #sideMenu {
-            position: fixed;        
-            top: 0;
-            right: -250px;
-            width: 250px;
-            height: 100%;
-            background: white;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-            transition: right 0.3s;
-            padding: 20px;
-            z-index: 9999;
-        }
+       #sideMenu {
+  position: fixed;
+  top: 70px;
+  right: -360px;   
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+}
 
-        #sideMenu.show {
-            right: 0;
-        }
+#sideMenu.show {
+  right: 0;        
+}
+
 
         #sideMenu ul {
             list-style: none;
@@ -359,6 +367,16 @@
         #sideMenu a:hover {
             color: var(--primary-color);
         }
+        #sideMenu {
+  box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+}
+
+        @media (max-width: 768px) {
+  #sideMenu {
+    width: 80%;
+    right: -80%;
+  }
+}
 
         .header-bottom {
             display: flex;
@@ -414,7 +432,7 @@
             font-size: 38px;
             font-weight: 700;
             margin: 0;
-            text-transform: uppercase;
+            text-transform: none;
             letter-spacing: 1px;
         }
 
@@ -448,7 +466,7 @@
 
         .card h2 {
             background: #f8f9fa;
-            color: #007bff;
+            color: #0d6efd;
             text-align: center;
             margin: 0;
             padding: 15px;
@@ -456,27 +474,33 @@
             font-weight: 600;
             border-bottom: 1px solid #ddd;
         }
-
+         .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            border-top: 1px solid #dee2e6;
+        }
         .info-table tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #fffff;
         }
 
         .info-table tr:nth-child(odd) {
-            background-color: #ffffff;
+            background-color: #f5f5f5;
         }
 
         .info-table td {
             padding: 15px 20px;
-            border-bottom: 1px solid #ddd;
             font-size: 16px;
+            border-top: 1px solid #dee2e6;
+            background: transparent;
         }
 
         .label {
             font-weight: 700;
             width: 20%;
-            color: #444;
-            border-right: 1px solid #ddd;
-            background-color: #f8f9fa;
+            color: #5c6b7a;
+            background: transparent;
+            border-top: 1px solid #dee2e6;
         }
 
         .value {
@@ -520,6 +544,7 @@
             width: 200px;
             background: #fff;
         }
+
 
         .btn-submit {
             display: none;
@@ -662,6 +687,12 @@
                 gap: 5px;
                 align-items: flex-start;
             }
+        @media (max-width: 768px) {
+         #sideMenu {
+             width: 80%;
+             right: -80%;
+           }
+
             .top-bar-right {
                 flex-direction: column;
                 gap: 10px;
@@ -722,14 +753,14 @@
                 <!-- أي روابط موجودة -->
                 <!-- Hamburger Icon -->
 <!-- Hamburger Icon --> 
-<div id="hamburger" style="cursor:pointer; position:fixed; top:70px; right:20px; z-index:1001; width:30px; height:24px; display:flex; flex-direction:column; justify-content:space-between;">
-    <span style="display:block; height:4px; width:100%; background:#333; border-radius:1px;"></span>
-    <span style="display:block; height:4px; width:100%; background:#333; border-radius:1px;"></span>
-    <span style="display:block; height:4px; width:100%; background:#333; border-radius:1px;"></span>
+<div id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
 <!-- Side Menu -->
-<div id="sideMenu" style="position:fixed; top:60px; right:-1000px; width:100px; height:100%;  color:white; padding:20px; transition: right 0.3s; z-index:1000;">
-    
+     <div id="sideMenu">
+   
     <ul style="list-style:none; padding:0; margin:0;">
         <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Home</a></li>
         <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">About</a></li>
@@ -760,6 +791,13 @@
             </nav>
         </div>
 
+<style>
+     #unit-val {
+      text-transform: capitalize;
+    }
+
+  </style>
+
 </header>
 
 <div class="hero">
@@ -774,7 +812,7 @@
             <table class="info-table">
                 <tr>
                     <td class="label">Unit</td>
-                    <td class="value" id="unit-val">Highway Engineering Consultancy Unit</td>
+                     <td id="unit-val"></td>
                 </tr>
                 <tr>
                     <td class="label">Client</td>
@@ -874,7 +912,7 @@
             </div>
             Copyright © 2024 Faculty of Engineering, Ain Shams University
         </div>
-  </footer>
+    </footer>
 <!-- Accessibility Panel -->
 <div id="accessibilityPanel" class="accessibility-panel">
 
@@ -929,6 +967,7 @@ function resetAccessibility(){
 </script>
 </body>
 </html>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -970,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-   
+
     <!-- Accessibility Toggle Button -->
     <div class="accessibility-toggle" onclick="toggleAccessibility()">
         <i class="fas fa-universal-access"></i>
