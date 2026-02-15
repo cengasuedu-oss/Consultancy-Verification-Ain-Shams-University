@@ -832,8 +832,6 @@ header {
         position: relative;
     }
     
-
-
     /* 4. تعديل الفوتر (Footer) */
    .footer-info-item {
         justify-content: flex-start !important; /* التأكد إن الأيقونة والكلام يبدأوا من الشمال */
@@ -878,13 +876,40 @@ header {
     .password-input {
         width: 100% !important;
     }
+          /* --- التعديل النهائي لإخفاء حافة القائمة الجانبية --- */
+#sideMenu {
+    right: -100% !important; /* بيخلي المنيو تخرج بره الشاشة تماماً */
+    visibility: hidden;      /* بيخليها مخفية تماماً عن العين */
+    position: fixed;
+    transition: right 0.4s ease, visibility 0.4s;
+    z-index: 1000;
 }
 
-/* إصلاح حركة القائمة الجانبية في الجافا سكريبت */
-#sideMenu {
-    transition: right 0.4s ease-in-out;
-    right: -100%; /* البداية يكون مخفي تماماً */
-        }
+/* لما تضغط على الـ Hamburger والمنيو تفتح */
+#sideMenu.show {
+    right: 0 !important;
+    visibility: visible !important;
+}
+
+/* أهم سطر عشان يمنع الصفحة تتهز يمين وشمال */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* تأكيد محاذاة الفوتر للشمال في الموبايل */
+@media screen and (max-width: 768px) {
+    .footer-col, .footer-logo-container, .footer-info {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important; /* بيجيب اللوجو والكلام أقصى الشمال */
+        text-align: left !important;
+    }
+    
+    .footer-info-item {
+        justify-content: flex-start !important;
+    }
+}
     </style>
 </head>
 <body>
