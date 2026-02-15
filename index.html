@@ -820,7 +820,26 @@ header {
     word-break: break-word; /* لو الوصف طويل ينزل سطر جديد في مكانه */
     text-align: left !important;
 }
+/* لون Approved الأخضر */
+.status-approved {
+    background-color: #28a745 !important;
+    color: white !important;
+    padding: 2px 10px !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+}
 
+/* لون كلمة View عند اللمس */
+.view-link {
+    color: #212529;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.view-link:active {
+    color: #fd7e14 !important; /* تقلب برتقالي عند الضغط */
+}
+    
 #hamburger span {
     display: block !important;
     background: #333 !important; /* لون أسود واضح للشرطات */
@@ -1118,14 +1137,24 @@ body {
             <td class="value">2024-10-21</td>
         </tr>
         <tr>
-            <td class="label">Status</td>
-            <td class="value"><span class="status-approved">Approved</span></td>
-        </tr>
-        <tr>
-            <td class="label">Report</td>
-            <td class="value"><a href="#" class="view-link">View</a></td>
-        </tr>
-    </table>
+            <tr>
+          <tr>
+    <td class="label">Status</td>
+    <td class="value">
+        <span id="status-val" class="status-approved"></span>
+    </td>
+</tr>
+
+<tr>
+    <td class="label">Report</td>
+    <td class="value">
+        <span id="view-label" class="view-link" onclick="showPasswordInput()">View</span>
+
+        <input type="password" id="reportPass" placeholder="Enter Password" style="display:none; margin-right:5px; padding:4px;">
+        <button class="btn-submit" onclick="checkPassword()" style="display:none; background:#fd7e14; color:white; border:none; padding:5px 10px; cursor:pointer;">Open</button>
+    </td>
+</tr>
+ </table>
 </div>
     </main>
 
@@ -1285,6 +1314,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+</body>
+</html>
 
 
     <!-- Accessibility Toggle Button -->
