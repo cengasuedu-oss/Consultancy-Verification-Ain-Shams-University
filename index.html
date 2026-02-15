@@ -771,28 +771,32 @@ header {
 /* الحاوية الرئيسية للجدول */ 
 .info-table {
     width: 100%;
-    border-collapse: collapse; /* عشان الخطوط تكون رفيعة ومنتظمة */
+    border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
     border: 1px solid #dee2e6;
+    /* ضفنا دي للتأكيد */
+    display: table !important; 
 }
 
-/* أهم سطر: إجبار الصفوف تظهر جنب بعضها حتى في الموبايل */
+/* إجبار الصفوف تظهر جنب بعضها */
 .info-table tr {
     display: table-row !important; 
 }
 
 /* تنسيق الخلية الرمادية (العناوين) */
 .label {
-    background-color: #f1f3f5 !important; /* لون رصاصي هادي زي الصورة */
+    background-color: #f1f3f5 !important;
     color: #495057 !important;
     font-weight: 700 !important;
     padding: 15px 12px !important;
     border: 1px solid #dee2e6 !important;
-    width: 35% !important; /* تثبيت عرض العمود الأيسر */
+    width: 35% !important;
     text-align: left !important;
     vertical-align: middle !important;
     font-size: 14px;
+    /* السطر ده هو اللي هيخليها متنزلش تحت */
+    display: table-cell !important; 
 }
 
 /* تنسيق الخلية البيضاء (البيانات) */
@@ -805,10 +809,12 @@ header {
     text-align: left !important;
     vertical-align: middle !important;
     font-size: 14px;
-    word-break: break-word; /* عشان النصوص الطويلة متخرجش بره */
+    word-break: break-word;
+    /* السطر ده هو اللي هيخليها متنزلش تحت */
+    display: table-cell !important; 
 }
 
-/* تنسيق كلمة Approved الأخضر */
+/* باقي التنسيقات زي ما هي */
 .status-approved {
     background-color: #28a745;
     color: white;
@@ -816,8 +822,9 @@ header {
     border-radius: 4px;
     font-weight: bold;
     font-size: 12px;
+    display: inline-block;
 }
-    /* تنسيق رابط View */
+
 .view-link {
     color: #007bff;
     text-decoration: none;
