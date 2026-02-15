@@ -831,26 +831,33 @@ header {
     text-align: center;
 }
 
+/* تنسيق كلمة View */
 .view-link {
-    color: #212529 !important;
-    cursor: pointer !important;
-    text-decoration: none !important; /* إلغاء الخط السفلي */
-    font-weight: 600;
-}
-
-.view-link:hover {
-    color: #fd7e14 !important; /* تقلب برتقالي عند تمرير الماوس */
-}
-
-/* لون كلمة View عند اللمس */
-.view-link {
-    color: #212529;
+    color: #fd7e14; /* برتقالي زي الصورة */
     cursor: pointer;
-    text-decoration: underline;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.view-link:active {
-    color: #fd7e14 !important; /* تقلب برتقالي عند الضغط */
+/* تنسيق زرار Submit الرمادي */
+.btn-submit {
+    background-color: #f1f3f5 !important;
+    color: #adb5bd !important; /* لون الخط رمادي فاتح */
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* لما الباسورد يكون صح والزرار يتفعل ممكن نغير لونه */
+.btn-submit:hover {
+    background-color: #dee2e6 !important;
+    color: #495057 !important;
+}
+
+/* تأكد إن الـ value بتعرض الحاجة جنب بعض */
+.value {
+    display: flex;
+    align-items: center;
 }
     
 #hamburger span {
@@ -1161,11 +1168,11 @@ body {
 <tr>
     <td class="label">Report</td>
     <td class="value">
-        <span id="view-label" class="view-link" onclick="showPasswordInput()" style="text-decoration: none;">View</span>
+        <span id="view-label" class="view-link" onclick="showPasswordInput()">View</span>
 
-        <div id="password-area" style="display:none; margin-top:5px;">
-            <input type="password" id="reportPass" placeholder="Password" style="padding:4px; width:100px; border:1px solid #ccc;">
-            <button class="btn-submit" onclick="checkPassword()" style="background:#fd7e14; color:white; border:none; padding:5px 10px; cursor:pointer; border-radius:4px;">Open</button>
+        <div id="pass-wrapper" style="display:none; align-items: center;">
+            <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; margin: 0 5px;">
+            <button class="btn-submit" onclick="checkPassword()" style="background: #e9ecef; color: #adb5bd; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Submit</button>
         </div>
     </td>
 </tr>
@@ -1312,24 +1319,23 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('app-date-val').innerText = projectData.approvalDate;
   document.getElementById('status-val').innerText = projectData.status;
 
-  wwindow.showPasswordInput = function(){
-    // إظهار المربع والزرار
-    document.getElementById('reportPass').style.display = 'inline-block';
-    document.querySelector('.btn-submit').style.display = 'inline-block';
+ window.showPasswordInput = function() {
+    // إظهار حاوية الباسورد بنظام الـ flex عشان يجوا جنب بعض
+    document.getElementById('pass-wrapper').style.display = 'inline-flex';
     
-    // إخفاء كلمة View عشان شكل الجدول يفضل مرتب
-    document.getElementById('view-label').style.display = 'none';
-}
+    // لو عاوز تخفي كلمة View لما المربع يظهر فعل السطر ده:
+    // document.getElementById('view-label').style.display = 'none';
+};
 
-window.checkPassword = function(){
+window.checkPassword = function() {
     const pass = document.getElementById('reportPass').value;
-    // هنا بنقارن بالباسورد اللي في الـ projectData اللي عندك
-    if(pass === projectData.reportPassword){
+    // هنا بنستخدم الباسورد اللي في projectData بتاعك
+    if (pass === projectData.reportPassword) {
         window.open(projectData.reportFile, '_blank');
     } else {
-        alert('كلمة السر خطأ!');
+        alert('كلمة السر غير صحيحة');
     }
-}
+};
 </script>
 </body>
 </html>
