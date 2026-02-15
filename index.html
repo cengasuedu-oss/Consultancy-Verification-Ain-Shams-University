@@ -756,15 +756,6 @@ header {
         box-sizing: border-box;
     }
 
-    /* --- التعديل النهائي لجدول الموبايل والـ Hamburger --- */
-@media screen and (max-width: 768px) {
-    /* 1. تحويل الجدول لنظام الكروت بألوان الصورة */
-    .info-table, .info-table tbody, .info-table tr, .info-table td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
     .info-table tr {
         margin-bottom: 15px; /* مسافة بين كل معلومة والتانية */
         border: 1px solid #dee2e6 !important;
@@ -790,12 +781,34 @@ header {
         word-wrap: break-word;
     }
 
-    /* 2. تنزيل الـ Hamburger لأسفل */
+    /* ده الكود اللي هيظهر الـ Hamburger ويظبط مكانه */
     #hamburger {
-        top: 70px !important; /* الرقم ده اللي بيحركه لتحت، زود لو حابب ينزل أكتر */
-        right: 15px !important;
-        position: absolute !important;
+        display: flex !important; 
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        position: fixed !important; /* خليه ثابت عشان ميهربش */
+        top: 110px !important;      /* نزلناه تحت الـ Accessibility */
+        right: 20px !important;
+        z-index: 99999 !important;  /* عشان يبقى فوق كل شيء */
+        cursor: pointer;
     }
+
+    #hamburger span {
+        display: block !important;
+        background: #333 !important; /* لون الشرطات */
+        height: 3px;
+        width: 100%;
+        border-radius: 2px;
+    }
+
+    /* عشان نضمن إن زرار الـ Accessibility ميزقوش */
+    .accessibility-toggle {
+        top: 0 !important;
+        z-index: 99998 !important; /* أقل من الـ Hamburger بسنة */
+    }
+}
     
     /* تصغير اللوجو عشان ميزقش المنيو */
     .main-logo {
@@ -816,9 +829,6 @@ header {
         margin-left: 0 !important;
     }
 
-    #hamburger {
-        position: static !important; /* تثبيت مكانه بجانب اللوجو */
-    }
 
     /* 4. تعديل الفوتر (Footer) */
     .footer-grid {
@@ -862,14 +872,6 @@ header {
 #sideMenu {
     transition: right 0.4s ease-in-out;
     right: -100%; /* البداية يكون مخفي تماماً */
-}
-            /* حط الكود ده في آخر منطقة الـ Style قبل القفلة */
-@media screen and (max-width: 768px) {
-    #hamburger {
-        top: 100px !important; /* الرقم ده بينزل المنيو لتحت، لو محتاج تنزل أكتر زود الرقم */
-        right: 20px !important;
-    }
-}
         }
     </style>
 </head>
