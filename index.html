@@ -781,32 +781,58 @@ header {
     margin-top: 0; /* المسافة جاية من الـ margin-bottom بتاع العنوان */
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 
-/* التأكد من وجود برواز علوي لأول صف في الجدول */
-.info-table tr:first-child td {
-    border-top: none;
-}
-.info-table tr:last-child {
-    border-bottom: none; /* إلغاء الخط في آخر صف */
+/* الحاوية الرئيسية للجدول */
+.info-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
 }
 
-/* العمود الأيسر (Label) - اللون الرمادي المظلل */
+/* تنسيق الصفوف - جعل العناصر قصاد بعض */
+.info-table tr {
+    display: table-row; /* لضمان أنهم قصاد بعض */
+    border-bottom: 1px solid #dee2e6;
+}
+
+.info-table tr:last-child {
+    border-bottom: none;
+}
+
+/* الجزء اليمين (Label) - تغميق الرصاصي شوية */
 .label {
-    background-color: #f1f3f5 !important; /* درجة الرمادي من الصورة */
-    color: #666d81 !important; /* لون النص الداكن */
+    /* تغميق اللون لدرجة رصاصي واضحة */
+    background-color: #e9ecef !important; 
+    color: #343a40 !important; /* نص أغمق للوضوح */
     padding: 12px 15px !important;
     font-weight: 700 !important;
-    border-right: 1px solid #dee2e6 !important; /* خط رأسي فاصل */
-    width: 35%;
+    width: 35%; /* عرض ثابت للعنوان عشان المحاذاة */
+    border-right: 1px solid #dee2e6 !important; /* الخط الفاصل بين العمودين */
     text-align: left;
+    vertical-align: middle;
 }
 
-/* العمود الأيمن (Value) */
+/* الجزء الشمال (Value) */
 .value {
-    padding: 12px 15px !important;
+    background-color: #ffffff !important;
     color: #212529 !important;
-    background: white !important;
-    word-wrap: break-word;
+    padding: 12px 15px !important;
+    text-align: left;
     vertical-align: middle;
+    word-wrap: break-word;
+}
+
+/* تنسيق حالة Approved */
+.status-approved {
+    background-color: #28a745;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* تنسيق حالة Approved */
