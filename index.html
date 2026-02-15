@@ -776,44 +776,49 @@ header {
     background-color: white;
 }
 
-/* الصفوف الزوجية (تلوين الصف بالكامل) */
+/* نظام الصفوف المتبادلة (صف رمادي وصف أبيض) */
 .info-table tr:nth-child(odd) {
-    background-color: #f1f3f5 !important; /* الصف الأول، الثالث، الخامس... رمادي */
+    background-color: #f1f3f5 !important;
 }
 
-/* الصفوف الفردية (تلوين الصف بالكامل) */
 .info-table tr:nth-child(even) {
-    background-color: #ffffff !important; /* الصف الثاني، الرابع... أبيض */
+    background-color: #ffffff !important;
 }
 
-/* تنسيق الخلايا (العناوين والوصف) */
+/* تنسيق الخلايا العام */
 .info-table td {
-    padding: 15px 12px !important;
+    padding: 12px 8px !important; /* تقليل المسافات الداخلية */
     border: 1px solid #dee2e6 !important;
     font-size: 14px;
     vertical-align: middle;
-    display: table-cell !important; /* لضمان بقائهم بجانب بعض */
+    display: table-cell !important;
 }
 
-/* تمييز خط العناوين فقط */
+/* العمود الأيسر (العنوان) - تقريبه من الوصف */
 .label {
     font-weight: 700 !important;
     color: #495057 !important;
-    width: 35% !important;
+    /* السطر ده بيخلي العمود على قد الكلمة ومبيسبش فراغ كبير */
+    width: 1% !important; 
+    white-space: nowrap !important; /* عشان العنوان ميتكسرش على سطرين */
+    border-right: none !important; /* شيلنا الفاصل الرأسي عشان يقربوا أكتر */
+    padding-right: 5px !important; /* مسافة صغيرة جداً قبل الوصف */
 }
 
-/* تنسيق الوصف */
+/* العمود الأيمن (الوصف) */
 .value {
     color: #212529 !important;
-    width: 65% !important;
+    text-align: left !important;
+    border-left: none !important; /* شيلنا الفاصل من الناحية التانية كمان */
+    padding-left: 5px !important; /* مسافة صغيرة جداً بعد العنوان */
     word-break: break-word;
 }
 
-/* حالة Approved ورابط View */
+/* تنسيق العناصر الخاصة */
 .status-approved {
     background-color: #28a745;
     color: white;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
     font-weight: bold;
     display: inline-block;
