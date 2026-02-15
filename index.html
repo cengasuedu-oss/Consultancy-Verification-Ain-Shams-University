@@ -884,7 +884,6 @@ header {
     transition: right 0.4s ease, visibility 0.4s;
     z-index: 1000;
 }
-
 /* لما تضغط على الـ Hamburger والمنيو تفتح */
 #sideMenu.show {
     right: 0 !important;
@@ -895,6 +894,65 @@ header {
 body {
     overflow-x: hidden;
     width: 100%;
+}
+          /* تنسيق القائمة الجانبية الاحترافي */
+#sideMenu {
+    background-color: #ffffff; /* خلفية بيضاء نظيفة */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* ظل جانبي ناعم */
+    width: 320px !important; /* عرض أكبر قليلاً ليناسب التصميم */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-header {
+    padding: 20px;
+    border-bottom: 3px solid #f39c12; /* الخط البرتقالي المميز في الصورة */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.professional-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.professional-menu li {
+    border-bottom: 1px solid #eee; /* الفواصل بين العناصر */
+}
+
+.professional-menu li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+/* تأثير التمرير (Hover) */
+.professional-menu li a:hover {
+    background-color: #f9f9f9;
+    color: #0d6efd;
+}
+
+/* أيقونات الأسهم جهة اليمين */
+.professional-menu li a i {
+    font-size: 12px;
+    color: #888;
+}
+
+/* تمييز رابط اللغة العربي */
+.lang-link {
+    color: #444 !important;
+}
+
+/* تحسين شكل الـ Hamburger في الموبايل ليظهر بوضوح */
+#hamburger span {
+    background-color: #333 !important;
 }
 
 /* تأكيد محاذاة الفوتر للشمال في الموبايل */
@@ -929,21 +987,40 @@ body {
     <span></span>
     <span></span>
 </div>
-<!-- Side Menu -->
-     <div id="sideMenu">
-   
-    <ul style="list-style:none; padding:0; margin:0;">
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Home</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">About</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Academics</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Research</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Student Life</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Faculty And Staff</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">International Collaboration</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Admission</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Our Customers</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">Login</a></li>
-        <li><a href="#" style="color:#6c757d; font-weight:600; text-decoration:none; display:block; padding:10px 0;">عربي</a></li>
+
+    <div id="sideMenu">
+    <div class="menu-header">
+        <img src="assets/images/footer-logo.png" alt="Logo" style="height: 40px;">
+        <i class="fas fa-chevron-down close-menu-icon"></i>
+    </div>
+    <ul class="professional-menu">
+        <li><a href="#">Home</a></li>
+        <li class="has-submenu">
+            <a href="#">About <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Academics <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Research <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Student Life <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Faculty and Staff <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">International Collaboration <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Admission <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Our Customers <i class="fas fa-chevron-down"></i></a>
+        </li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#" class="lang-link">عربي</a></li>
     </ul>
 </div>
 
