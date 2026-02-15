@@ -1151,11 +1151,20 @@ body {
 <tr>
     <td class="label">Report</td>
     <td class="value">
-        <span id="view-label" class="view-link" onclick="handleViewClick()">View</span>
+        <span id="view-label" class="view-link" 
+              style="color: #212529; cursor: pointer; text-decoration: none; font-weight: 500;"
+              onclick="this.style.color='#fd7e14'; document.getElementById('pass-wrapper').style.display='inline-flex';">
+              View
+        </span>
 
         <div id="pass-wrapper" style="display:none; align-items: center; margin-left: 10px;">
             <input type="password" id="reportPass" placeholder="Pass" style="width: 60px; padding: 4px; border: 1px solid #ccc; border-radius: 4px;">
-            <button onclick="handleCheckPassword()" style="margin-left:5px; padding: 4px 10px; cursor: pointer;">Submit</button>
+            
+            <button type="button" 
+                    style="margin-left:5px; padding: 4px 10px; cursor: pointer; background: #f1f3f5; border: 1px solid #ccc; border-radius: 4px;"
+                    onclick="var p = document.getElementById('reportPass').value; if(p === '14518423'){ window.open('./assets/report.pdf', '_blank'); } else { alert('كلمة السر خطأ'); }">
+                Submit
+            </button>
         </div>
     </td>
 </tr>
