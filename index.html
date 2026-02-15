@@ -305,7 +305,7 @@ header {
 #hamburger {
   cursor: pointer;
   position: absolute;  
-  top: 70px;
+  top: 1000px;
   right: -100px;
   z-index: 1001;
   width: 30px;
@@ -756,33 +756,52 @@ header {
         box-sizing: border-box;
     }
 
-    /* 2. تحويل الجدول لنظام الكروت (أهم خطوة للبيانات) */
+    /* --- التعديل النهائي لجدول الموبايل والـ Hamburger --- */
+@media screen and (max-width: 768px) {
+    /* 1. تحويل الجدول لنظام الكروت بألوان الصورة */
     .info-table, .info-table tbody, .info-table tr, .info-table td {
         display: block !important;
         width: 100% !important;
+        box-sizing: border-box;
     }
 
     .info-table tr {
-        margin-bottom: 10px;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        overflow: hidden;
+        margin-bottom: 15px; /* مسافة بين كل معلومة والتانية */
+        border: 1px solid #dee2e6 !important;
+        border-radius: 4px;
+        background-color: white;
     }
 
     .label {
-        background-color: #f8f9fa !important;
-        color: #003366 !important;
+        /* لون الخلفية الرمادي الفاتح من الصورة */
+        background-color: #f8f9fa !important; 
+        /* لون النص الرمادي الداكن */
+        color: #5c6b7a !important; 
         padding: 10px 15px !important;
-        font-weight: bold !important;
-        border-bottom: 1px solid #ddd !important;
+        font-weight: 700 !important;
+        border-bottom: 1px solid #dee2e6 !important;
+        text-align: left;
     }
 
     .value {
-        padding: 15px !important;
-        padding-left: 15px !important; /* إلغاء الـ 30px اللي كانت بتبوظ الشكل */
-        word-wrap: break-word; /* عشان النصوص الطويلة متخرجش بره */
+        padding: 12px 15px !important;
+        color: #444 !important;
         background: white !important;
+        word-wrap: break-word;
     }
+
+    /* 2. تنزيل الـ Hamburger لأسفل */
+    #hamburger {
+        top: 130px !important; /* الرقم ده اللي بيحركه لتحت، زود لو حابب ينزل أكتر */
+        right: 15px !important;
+        position: absolute !important;
+    }
+    
+    /* تصغير اللوجو عشان ميزقش المنيو */
+    .main-logo {
+        height: 60px !important;
+    }
+}
 
     /* 3. تعديل الهيدر واللوجو */
     .header-main {
