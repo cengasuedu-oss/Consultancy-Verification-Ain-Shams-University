@@ -820,40 +820,7 @@ header {
     word-break: break-word; /* لو الوصف طويل ينزل سطر جديد في مكانه */
     text-align: left !important;
 }
-/* تنسيق كلمة Approved الأخضر */
-.status-approved {
-    background-color: #28a745 !important; /* اللون الأخضر */
-    color: white !important;
-    padding: 4px 12px !important;
-    border-radius: 6px !important;
-    font-weight: bold !important;
-    font-size: 13px !important;
-    display: inline-block !important;
-}
 
-/* تنسيق كلمة View وشكلها لما تضغط عليها */
-.view-link {
-    color: #007bff; /* لونها الطبيعي أزرق */
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-/* لما تدوس عليها (Active) تقلب برتقالي */
-.view-link:active {
-    color: #fd7e14 !important; /* اللون البرتقالي */
-}
-
-/* مربع الباسورد (مخفي في البداية) */
-#password-container {
-    display: none; /* مخفي */
-    margin-top: 10px;
-    padding: 10px;
-    background: #fff3cd; /* لون تنبيه خفيف */
-    border: 1px solid #ffeeba;
-    border-radius: 4px;
-}
 #hamburger span {
     display: block !important;
     background: #333 !important; /* لون أسود واضح للشرطات */
@@ -1155,15 +1122,11 @@ body {
             <td class="value"><span class="status-approved">Approved</span></td>
         </tr>
         <tr>
-            <td class="value">
-    <span class="view-link" onclick="showPasswordField()">View</span>
-    
-    <div id="password-container" style="display: none; margin-top: 10px;">
-        <input type="password" id="inputPass" placeholder="Enter Password" style="padding: 5px; border: 1px solid #ccc;">
-        <button onclick="validateAndOpen()" style="padding: 5px 10px; background: #fd7e14; color: white; border: none; cursor: pointer;">Open</button>
-        <p id="error-msg" style="color: red; font-size: 12px; display: none;">Wrong Password!</p>
-    </div>
-</td>
+            <td class="label">Report</td>
+            <td class="value"><a href="#" class="view-link">View</a></td>
+        </tr>
+    </table>
+</div>
     </main>
 
     <footer>
