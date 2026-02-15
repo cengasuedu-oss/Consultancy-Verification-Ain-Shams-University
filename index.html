@@ -835,23 +835,31 @@ header {
 
 
     /* 4. تعديل الفوتر (Footer) */
-    .footer-grid {
-        grid-template-columns: 1fr !important; /* عمود واحد */
-        gap: 30px;
+   .footer-info-item {
+        justify-content: flex-start !important; /* التأكد إن الأيقونة والكلام يبدأوا من الشمال */
+        width: 100%;
+        gap: 10px;
     }
 
     .footer-col {
-        text-align: center;
+        text-align: left !important;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
     }
 
     .footer-logo-container {
-        align-items: center !important;
+        align-items: flex-start !important; /* تحريك اللوجو والكلمة اللي تحته للشمال */
+        text-align: left !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
     }
 
-    .footer-info-item {
-        justify-content: center;
+    footer-info {
+        align-items: flex-start !important; /* تحريك العناصر كلها للشمال */
+        text-align: left !important;
     }
-
+ }
     /* 5. تعديل الهيرو (الجزء الأزرق العلوي) */
     .hero {
         height: 180px !important;
