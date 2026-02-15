@@ -768,52 +768,50 @@ header {
     margin-bottom: 15px !important; /* دي المسافة البيضاء اللي أنت عاوزها */
     box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* ظل خفيف جداً لشكل أشيك */
 }
-/* الحاوية الرئيسية */
+/* الحاوية الرئيسية - بنحافظ على شكل البرواز والألوان */
 .info-table {
     width: 100% !important;
     border-collapse: collapse !important;
-    border: 1px solid #dee2e6 !important; /* الإطار الخارجي فقط */
+    border: 1px solid #dee2e6 !important;
     background-color: white;
+    table-layout: auto !important; /* دي بتخلي الجدول يلم المسافات الزيادة */
 }
 
-/* نظام الصفوف المتبادلة */
+/* بنحافظ على نظام صف رمادي وصف أبيض */
 .info-table tr:nth-child(odd) {
     background-color: #f1f3f5 !important;
 }
 
-/* تنسيق الخلايا */
+/* تنسيق الخلايا - بنشيل الفواصل الطولية بس */
 .info-table td {
-    padding: 12px 5px !important; /* مسافة عمودية محترمة ومسافة أفقية صغيرة */
+    padding: 12px 0 !important; /* بنصفر المسافة الجانبية هنا عشان نتحكم فيها بدقة تحت */
     font-size: 14px;
+    border: none !important;
+    border-bottom: 1px solid #eeeeee !important;
     vertical-align: middle;
-    display: table-cell !important;
-    
-    /* حذف أي خطوط داخلية تماماً */
-    border: none !important; 
-    /* خط أفقي خفيف جداً بين الصفوف عشان الكلام ميتوهش في بعضه */
-    border-bottom: 1px solid #eeeeee !important; 
 }
 
-/* تقريب العنوان من الوصف */
+/* المسؤول عن المسافة - ركز هنا */
 .label {
     font-weight: 700 !important;
     color: #495057 !important;
-    
-    /* جعل العمود على مقاس الكلمة بالظبط */
-    width: 1% !important; 
+    width: 1% !important; /* بيجبر العمود يلم على الكلمة */
     white-space: nowrap !important;
     
-    /* المسافة الصغيرة اللي طلبتها بين الكلمتين */
-    padding-right: -5px !important; 
+    padding-left: 10px !important;  /* مسافة العنوان من الشمال (عشان ميبقاش لازق في البرواز) */
+    
+    /* 👈 دي المسافة اللي بين العنوان والوصف - غيرها براحتك */
+    padding-right: 5px !important;  
 }
 
-/* الوصف */
 .value {
     color: #212529 !important;
     text-align: left !important;
-    /* إلغاء أي مسافة زيادة */
+    
+    /* 👈 بنصفر دي عشان نضمن إن المسافة جاية من الـ label بس */
     padding-left: 0 !important; 
-    word-break: break-word;
+    padding-right: 10px !important; /* مسافة الوصف من اليمين عشان ميبقاش لازق في البرواز */
+    width: auto !important;
 }
 
 #hamburger span {
