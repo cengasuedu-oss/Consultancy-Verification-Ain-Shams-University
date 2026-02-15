@@ -756,31 +756,55 @@ header {
         box-sizing: border-box;
     }
 
-    .info-table tr {
-        margin-bottom: 15px; /* مسافة بين كل معلومة والتانية */
-        border: 1px solid #dee2e6 !important;
-        border-radius: 4px;
-        background-color: white;
-    }
+    /* الحاوية الخارجية للجدول */
+.info-table {
+    width: 100%;
+    border-collapse: separate; /* مهم جداً عشان الحواف المنحنية تظهر */
+    border-spacing: 0;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden; /* عشان يقص الزوايا الحادة */
+    background-color: white;
+}
 
-    .label {
-        /* لون الخلفية الرمادي الفاتح من الصورة */
-        background-color: #f8f9fa !important; 
-        /* لون النص الرمادي الداكن */
-        color: #5c6b7a !important; 
-        padding: 10px 15px !important;
-        font-weight: 700 !important;
-        border-bottom: 1px solid #dee2e6 !important;
-        text-align: left;
-    }
+/* تنسيق الصفوف */
+.info-table tr {
+    border-bottom: 1px solid #dee2e6;
+}
 
-    .value {
-        padding: 12px 15px !important;
-        color: #444 !important;
-        background: white !important;
-        word-wrap: break-word;
-    }
+.info-table tr:last-child {
+    border-bottom: none; /* إلغاء الخط في آخر صف */
+}
 
+/* العمود الأيسر (Label) - اللون الرمادي المظلل */
+.label {
+    background-color: #f1f3f5 !important; /* درجة الرمادي من الصورة */
+    color: #495057 !important; /* لون النص الداكن */
+    padding: 12px 15px !important;
+    font-weight: 700 !important;
+    border-right: 1px solid #dee2e6 !important; /* خط رأسي فاصل */
+    width: 35%;
+    text-align: left;
+}
+
+/* العمود الأيمن (Value) */
+.value {
+    padding: 12px 15px !important;
+    color: #212529 !important;
+    background: white !important;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+/* تنسيق حالة Approved */
+.status-approved {
+    background-color: #28a745;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
    /* الهامبرجر في مكانه الصحيح (أعلى اليمين) */
 #hamburger {
     display: flex !important;
@@ -1068,48 +1092,42 @@ body {
 </div>
   <main class="main-container">
         <div class="card">
-            <h2>Request Information</h2>
-            <table class="info-table">
-                <tr>
-                    <td class="label">Unit</td>
-                     <td id="unit-val"></td>
-                </tr>
-                <tr>
-                    <td class="label">Client</td>
-                    <td class="value" id="client-val">شركة الرحاب للمقاولات</td>
-                </tr>
-                <tr>
-                    <td class="label">QR Code</td>
-                    <td class="value" id="qr-val">690727588f</td>
-                </tr>
-                <tr>
-                    <td class="label">Submission Date</td>
-                    <td class="value" id="sub-date-val">2025-11-02 09:41:44</td>
-                </tr>
-                <tr>
-                    <td class="label">Description</td>
-                    <td class="value arabic-text" id="desc-val">مشروع أعمال صيانة بعض الطرق والأرصفة بالأحياء والطرق الرئيسية غرب طريق الروبيكي بالمدينة أمر اسناد رقم (283) بتاريخ 9/11/2023 شركة الرحاب للمقاولات العمومية "وسام محمد أحمد طايل وشركاه" تقارير 114-115-116-117-118 أكتوبر 2025</td>
-                </tr>
-                <tr>
-                    <td class="label">Approval Date</td>
-                    <td class="value" id="app-date-val">2025-11-04</td>
-                </tr>
-                <tr>
-                    <td class="label">Status</td>
-                    <td class="value"><span class="badge" id="status-val">Approved</span></td>
-                </tr>
-                <tr>
-                    <td class="label">Report</td>
-                    <td class="value">
-                        <div class="report-actions">
-                            <span class="btn-view" id="view-label" onclick="showPasswordInput()">View</span>
-                            <input type="password" id="reportPass" class="password-input" placeholder="Password">
-                            <button class="btn-submit" onclick="checkPassword()">Submit</button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <div class="card-header">Request Information</div>
+    <table class="info-table">
+        <tr>
+            <td class="label">Unit</td>
+            <td class="value">Highway Engineering Consultancy Unit</td>
+        </tr>
+        <tr>
+            <td class="label">Client</td>
+            <td class="value">شركة كونستريد</td>
+        </tr>
+        <tr>
+            <td class="label">QR Code</td>
+            <td class="value">6710aab635</td>
+        </tr>
+        <tr>
+            <td class="label">Submission Date</td>
+            <td class="value">2024-10-17 06:12:06</td>
+        </tr>
+        <tr>
+            <td class="label">Description</td>
+            <td class="value">شركة كونستريد (محمد ابراهيم محمود عثمان) مشروع أعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات (أرض المشتل) بالتجمع الخامس تقرير 48 أكتوبر 2024</td>
+        </tr>
+        <tr>
+            <td class="label">Approval Date</td>
+            <td class="value">2024-10-21</td>
+        </tr>
+        <tr>
+            <td class="label">Status</td>
+            <td class="value"><span class="status-approved">Approved</span></td>
+        </tr>
+        <tr>
+            <td class="label">Report</td>
+            <td class="value"><a href="#" class="view-link">View</a></td>
+        </tr>
+    </table>
+</div>
     </main>
 
     <footer>
