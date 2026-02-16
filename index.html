@@ -1340,6 +1340,43 @@ function handleCheckPassword() {
     }
 }
 </script>
+<script>
+    // 1. منع الضغط كليك يمين
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert("عذراً، لا يمكن نسخ المحتوى حفاظاً على خصوصية البيانات.");
+    });
+
+    // 2. منع اختصارات الكيبورد (النسخ، القص، رؤية الكود)
+    document.onkeydown = function(e) {
+        // منع F12
+        if (e.keyCode == 123) {
+            return false;
+        }
+        // منع Ctrl+U (رؤية السورس)
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        // منع Ctrl+C (النسخ)
+        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        // منع Ctrl+Shift+I (فتح أدوات المطورين)
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+    };
+</script>
+
+<style>
+    /* 3. منع تحديد النص عن طريق الـ CSS */
+    body {
+        -webkit-user-select: none; /* Chrome, Safari */
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* IE 10+ */
+        user-select: none;         /* Standard syntax */
+    }
+</style>
 </body>
 </html>
 
