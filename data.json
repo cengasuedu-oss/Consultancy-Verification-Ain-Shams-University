@@ -2,12 +2,13 @@
   "2351s695": {
     "unit": "Highway Engineering Consultancy Unit",
     "client": "شركة كونستريد",
-    "submissionDate": "2025-11-17 10:34:55",
-    "description": "مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات...",
-    "approvalDate": "2026-02-16",
+    "submissionDate": "2025-04-01 10:34:55",
+    "description": "اعمال تنفيذ الطبقة الرابطة الاسفلتية لمناطق قطع الأراضي الأكثر تميزا 
+        (3.4.5.6) بمنطقة 2600 فدان ",
+    "approvalDate": "2026-04-15",
     "status": "Approved",
     "passwords": {
-      "14518423": "./assets/old_report.pdf",
+      "14518423": "./assets/تصميم خلطة 3د.pdf",
       "12123212": "./assets/new_report.pdf"
     }
   },
