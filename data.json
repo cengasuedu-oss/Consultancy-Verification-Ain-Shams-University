@@ -10,14 +10,12 @@
       "14518423": "./assets/new_report1.pdf",
       "12123212": "./assets/new_report.pdf"
     }
-  }
-}
-  {
+  },
   "722615b13": {
     "unit": "Highway Engineering Consultancy Unit",
-    "client": "(شركة كونستريد (محمد ابراهيم محمود عثمان",
+    "client": "شركة كونستريد (محمد ابراهيم محمود عثمان)",
     "submissionDate": "2026-01-28 10:22:31",
-    "description": "وصف مشروع آخر هنا...",
+    "description": "مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات.",
     "approvalDate": "2026-02-03",
     "status": "Approved",
     "passwords": {
