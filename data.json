@@ -1,8 +1,8 @@
 {
   "2351s695": {
     "unit": "Highway Engineering Consultancy Unit",
-    "client": "شركة كونستريد",
-    "submissionDate": "2025-04-01 10:34:55",
+    "client": "شركة كونستريد (محمد ابراهيم محمود عثمان علي)",
+    "submissionDate": "2026-04-01 10:34:55",
     "description": "أعمال تنفيذ الطبقة الرابطة الأسفلتية لمناطق قطع الأراضي الأكثر تميزاً (المناطق: 3، 4، 5، 6) بمنطقة الـ 2600 فدان.",
     "approvalDate": "2026-04-15",
     "status": "Approved",
@@ -13,13 +13,13 @@
   },
   "722615b13": {
     "unit": "Highway Engineering Consultancy Unit",
-    "client": "شركة كونستريد (محمد ابراهيم محمود عثمان)",
-    "submissionDate": "2026-01-28 10:22:31",
-    "description": "مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات.",
-    "approvalDate": "2026-02-03",
+    "client": "شركة كونستريد (محمد ابراهيم محمود عثمان علي)",
+    "submissionDate": "2026-04-01 10:34:55",
+    "description": " مشروع اعمال رفع كفاءة الطرق بالمنطقة الترفيهية بالشويفات (ارض المشتل) بمدينة القاهرة الجديدة.",
+    "approvalDate": "2026-04-15",
     "status": "Approved",
     "passwords": {
-      "55443322": "./assets/project2.pdf"
+      "42113111": "./assets/new_report2.pdf"
     }
   }
 }
