@@ -1245,8 +1245,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = urlParams.get('id');
 
+    // --- تعديل: لو مفيش ID في الرابط، ابعته لصفحة اليد (404) ---
     if (!projectId) {
-        console.log("لا يوجد معرف للمشروع في الرابط");
+        window.location.href = "https://eng.asu.edu.eg/error-page";
         return;
     }
 
@@ -1269,10 +1270,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('app-date-val').innerText = project.approvalDate;
                 document.getElementById('status-val').innerText = project.status;
 
-                // تخزين ملفات هذا المشروع وكلمات السر الخاصة به في ذاكرة الصفحة مؤقتاً
+                // تخزين ملفات هذا المشروع في ذاكرة الصفحة مؤقتاً
                 window.currentProjectFiles = project.passwords;
             } else {
-                alert("عذراً، كود المشروع غير مسجل.");
+                // --- تعديل: لو الـ ID مكتوب غلط ومش موجود في الملف، ابعته لصفحة اليد (404) ---
+                window.location.href = "https://eng.asu.edu.eg/error-page";
             }
         })
         .catch(error => console.error("خطأ في جلب البيانات:", error));
@@ -1292,10 +1294,9 @@ function handleViewClick() {
 // دالة التحقق من كلمة السر (ديناميكية لكل مشروع)
 function handleCheckPassword() {
     var passInput = document.getElementById('reportPass').value;
-    const files = window.currentProjectFiles; // جلب البيانات المخزنة من الـ JSON
+    const files = window.currentProjectFiles; 
 
     if (files && files[passInput]) {
-        // إذا كانت كلمة السر مطابقة لأي ملف مسجل في الـ JSON لهذا المشروع
         window.open(files[passInput], '_blank');
     } else {
         alert('كلمة السر غير صحيحة يا هندسة!');
